@@ -1,29 +1,14 @@
-- name: playbook 1
+- name: playbook1
   hosts: local
   connection: local
   become: yes
   tasks:
-    - name: ping server
-      ansible.builtin.ping:
-    - name: mesage the server
-      ansible.builtin.debug:
-        msg: "Hello world"
-    - name: create a directory
-      ansible.builtin.file:
-        state: directory
-        path: /home/ec2-user/dir2
-        mode: 440
-        owner: ec2-user
-    - name: create a file
-      ansible.builtin.file:
-        state: touch
-        path: /home/ec2-user/f22
-        mode: 444
-        owner: ec2-user
-- name: playbook2
-  hosts: local
-  connection: local
-  become: yes
-  tasks:
-    - name: ping from playbook2
-      ansible.builtin.ping:
+    - name: install nginx
+      ansible.builtin.package:
+        name: nginx
+        state: present
+    - name: start and enable nginx
+      ansible.builtin.service:
+        name: nginx
+        state: started
+        enabled: true
