@@ -1,4 +1,7 @@
+EXPENSE_PASSWORD=$(cat /home/ec2-user/pratice/expense_pass.txt)
+
 source ./common.sh
+
 
 root_validate
 
@@ -18,7 +21,7 @@ systemctl enable mysqld
 
 check_exit_status $? "mysql-sever enabled"
 
-mysql -h localhost -u root -p$EXPENSE_PASSWORD
+mysql -h localhost -u root -p $EXPENSE_PASSWORD
 
 check_exit_status $? "database-root-password-set"
 
