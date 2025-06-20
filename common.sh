@@ -1,4 +1,4 @@
-function rootValidate()
+function root_validate()
 {
     if [ $UID -ne 0 ]
     then
@@ -7,7 +7,7 @@ function rootValidate()
     fi
 }
 
-function check_exit_Status()
+function check_exit_status()
 {
     if [ $1 -ne 0 ]
     then
