@@ -23,8 +23,6 @@ VALIDATE $? "mysql-sever enabled"
 
 mysql -h localhost -u root -p$EXPENSE_PASSWORD
 
-VALIDATE $? "database root password"
-
 if [ $? -ne 0 ]
 then
     echo "setting database root password"
