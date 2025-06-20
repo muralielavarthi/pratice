@@ -14,4 +14,5 @@ function check_exit_Status()
         echo "$2 not installed...Failure"
     else
         echo "$2 installed....Sucess"
+    fi
 }
