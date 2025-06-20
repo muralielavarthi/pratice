@@ -10,5 +10,21 @@ function rootValidate()
         exit 1
     fi
 }
+function checkexistStatus(x,y)
+{
+    if [ x -ne 0 ]
+    then
+        echo "$y not installed"
+    else
+        echo "$y already installed"
+    fi
+}
 
 rootValidate
+
+dnf list installed mysql-server
+
+checkexistStatus $? "mysql-server"
+
+
+
