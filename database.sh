@@ -21,7 +21,7 @@ systemctl enable mysqld
 
 check_exit_status $? "mysql-sever enabled"
 
-mysql -h localhost -u root -p ExpenseApp@1
+mysql -h localhost -u root -pExpenseApp@1
 
 check_exit_status $? "database-root-password-set"
 
