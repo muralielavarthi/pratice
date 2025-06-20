@@ -11,8 +11,8 @@ function check_exit_status()
 {
     if [ $1 -ne 0 ]
     then
-        echo "$2 not installed...Failure"
+        echo "$2...Failure"
     else
-        echo "$2 installed....Sucess"
+        echo "$2....Sucess"
     fi
 }
