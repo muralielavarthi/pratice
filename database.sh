@@ -23,12 +23,12 @@ systemctl enable mysqld
 
 VALIDATE $? "mysql-sever enabled"
 
-mysql -h 172.31.16.214 -u root -p"$EXPENSE_PASSWORD" -e 'show databases;'
+mysql -h 172.31.16.214 -u root -p$EXPENSE_PASSWORD -e 'show databases;'
 
 if [ $? -ne 0 ]
 then
     echo "setting database root password"
-    mysql_secure_installation --set-root-pass "$EXPENSE_PASSWORD"
+    mysql_secure_installation --set-root-pass $EXPENSE_PASSWORD
     VALIDATE $? "root-password-setting"
 else
     echo "root password already set"
