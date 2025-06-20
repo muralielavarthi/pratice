@@ -1,30 +1,7 @@
-#!/bin/bash
-
-TIME_STAMP=$(date +"%d-%m-%y")
-
-function rootValidate()
-{
-    if [ $UID -ne 0 ]
-    then
-        echo "you need root access to run the script"
-        exit 1
-    fi
-}
-function checkexistStatus()
-{
-    if [ arg1 -ne 0 ]
-    then
-        echo "$arg2 not installed"
-    else
-        echo "$arg2 already installed"
-    fi
-}
+source ./common.sh
 
 rootValidate
 
-dnf list installed mysql-server
+dnf list installed mysql-sever
 
-checkexistStatus $? "mysql-server"
-
-
-
+check_exit_Status $? "mysql-server"
