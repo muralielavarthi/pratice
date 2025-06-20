@@ -18,10 +18,10 @@ systemctl enable mysqld
 
 check_exit_status $? "mysql-sever enabled"
 
-mysql -h localhost -u root -p$PASSWORD
+mysql -h localhost -u root -p$EXPENSE_PASSWORD
 
 check_exit_status $? "database-root-password-set"
 
-mysql_secure_installation --set-root-pass $PASSWORD
+mysql_secure_installation --set-root-pass $EXPENSE_PASSWORD
 
 check_exit_status $? "database-root-password-set"
