@@ -1,3 +1,5 @@
+PASSWORD = ExpenseApp@1
+
 function root_validate()
 {
     if [ $UID -ne 0 ]
