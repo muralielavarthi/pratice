@@ -1,6 +1,6 @@
 function rootValidate()
 {
-    if [ $UID -nq 0 ]
+    if [ $UID -ne 0 ]
     then
         echo "you need root access to proceed"
         exit 1
@@ -9,7 +9,7 @@ function rootValidate()
 
 function check_exit_Status()
 {
-    if [ $1 -nq 0 ]
+    if [ $1 -ne 0 ]
     then
         echo "$2 not installed...Failure"
     else
