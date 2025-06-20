@@ -23,15 +23,15 @@ systemctl enable mysqld
 
 VALIDATE $? "mysql-sever enabled"
 
-mysql -h localhost -u root -p$EXPENSE_PASSWORD -e 'show databases;'
+
+mysql -h 172.31.95.138 -u root -pExpenseApp@1 -e 'show databases;' 
 
 if [ $? -ne 0 ]
 then
-    echo "setting database root password"
-    mysql_secure_installation --set-root-pass $EXPENSE_PASSWORD
-    VALIDATE $? "root-password-setting"
+    mysql_secure_installation --set-root-pass ExpenseApp@1
+    VALIDATE $? "Root Password setup"
 else
-    echo "root password already set"
+    echo "MySQL Root password already setup ...SKIPPING"
 fi
 systemctl restart mysqld
 
