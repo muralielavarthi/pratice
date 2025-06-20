@@ -2,12 +2,9 @@ EXPENSE_PASSWORD=$(cat /home/ec2-user/pratice/expense_pass.txt)
 
 source ./common.sh
 
-
 ROOT_CHECK
 
 dnf list installed mysql-server
-
-VALIDATE $? "mysql-server installation"
 
 if [ $? -ne 0 ]
 then 
