@@ -11,4 +11,4 @@ function rootValidate()
     fi
 }
 
-rootValidate()
+rootValidate
