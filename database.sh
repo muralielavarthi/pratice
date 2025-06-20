@@ -3,28 +3,37 @@ EXPENSE_PASSWORD=$(cat /home/ec2-user/pratice/expense_pass.txt)
 source ./common.sh
 
 
-root_validate
+ROOT_CHECK
 
 dnf list installed mysql-server
 
-check_exit_status $? "mysql-server installation"
+VALIDATE $? "mysql-server installation"
 
-dnf install mysql-server -y 
-
-check_exit_status $? "mysql-server installation"
+if [ $? -ne 0 ]
+then 
+    echo "installing mysql-server"
+    dnf install mysql-server -y 
+    VALIDATE $? "mysql-server installation"
+fi
 
 systemctl start mysqld
 
-check_exit_status $? "mysql-sever started"
+VALIDATE $? "mysql-sever started"
 
 systemctl enable mysqld
 
-check_exit_status $? "mysql-sever enabled"
+VALIDATE $? "mysql-sever enabled"
 
 mysql -h localhost -u root -p$EXPENSE_PASSWORD
 
-check_exit_status $? "database-root-password-set"
+VALIDATE $? "database root password"
 
-mysql_secure_installation --set-root-pass $EXPENSE_PASSWORD
+if [ $? -ne 0 ]
+then
+    echo "setting database root password"
+    mysql_secure_installation --set-root-pass $EXPENSE_PASSWORD
+    VALIDATE $? "database-root-password-set"
+fi
+systemctl restart mysqld
 
-check_exit_status $? "database-root-password-set"
+VALIDATE $? "mysql-sever restarted"
