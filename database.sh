@@ -2,7 +2,7 @@ source ./common.sh
 
 root_validate
 
-dnf list installed mysql-sever
+dnf list installed mysql-server
 
 check_exit_status $? "mysql-server installation"
 
