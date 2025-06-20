@@ -10,13 +10,13 @@ function rootValidate()
         exit 1
     fi
 }
-function checkexistStatus(x,y)
+function checkexistStatus()
 {
-    if [ x -ne 0 ]
+    if [ arg1 -ne 0 ]
     then
-        echo "$y not installed"
+        echo "$arg2 not installed"
     else
-        echo "$y already installed"
+        echo "$arg2 already installed"
     fi
 }
 
