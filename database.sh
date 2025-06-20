@@ -8,9 +8,11 @@ dnf list installed mysql-server
 
 if [ $? -ne 0 ]
 then 
-    echo "installing mysql-server"
+    echo "mysql-server installing now"
     dnf install mysql-server -y 
     VALIDATE $? "mysql-server installation"
+else
+    echo "mysql-server already installed"
 fi
 
 systemctl start mysqld
@@ -27,7 +29,9 @@ if [ $? -ne 0 ]
 then
     echo "setting database root password"
     mysql_secure_installation --set-root-pass $EXPENSE_PASSWORD
-    VALIDATE $? "database-root-password-set"
+    VALIDATE $? "root-password-setting"
+else
+    echo "root password already set"
 fi
 systemctl restart mysqld
 
