@@ -1,4 +1,4 @@
-EXPENSE_PASSWORD="ExpenseApp@1"
+export EXPENSE_PASSWORD="ExpenseApp@1"
 
 function root_validate()
 {
