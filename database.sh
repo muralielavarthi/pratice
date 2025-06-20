@@ -1,6 +1,6 @@
 #!/bin/bash
 
-TIME_STAMP=$(date+"%d-%m-%y")
+TIME_STAMP=$(date +"%d-%m-%y")
 
 function rootValidate()
 {
