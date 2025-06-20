@@ -8,6 +8,7 @@ function rootValidate()
     then
         echo "you root access to run the script"
         exit 1
+    fi
 }
 
 rootValidate()
