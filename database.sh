@@ -23,7 +23,7 @@ systemctl enable mysqld
 
 VALIDATE $? "mysql-sever enabled"
 
-mysql -h localhost -u root -p $EXPENSE_PASSWORD -e 'SHOW DATABASES;'
+mysql -h localhost -u root -pExpenseApp@1 -e 'SHOW DATABASES;'
 
 if [ $? -ne 0 ]
 then
