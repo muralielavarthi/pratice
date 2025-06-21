@@ -9,4 +9,6 @@ read PASSWORD
 if [ $USER_NAME == "admin" ] && [ $USER_NAME == "admin" ]   
 then
     echo "login succesfull"
+else    
+    echo "login unsuccesfull"
 fi
