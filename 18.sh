@@ -12,5 +12,3 @@ read num1
 echo "enter num2"
 read num2
 
-
-sum 20,30
