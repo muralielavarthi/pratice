@@ -16,7 +16,7 @@ echo "finding text files"
 touch output.txt
 echo "created final output file"
 
-TEXT_FILES_LIST=find $DIR_PATH -type f -name "file*"
+TEXT_FILES_LIST=find "$DIR_PATH" -type f -name "file*"
 
 while read line
 do  
