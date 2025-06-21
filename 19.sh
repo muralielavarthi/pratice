@@ -17,7 +17,7 @@ touch output_file.txt
 
 echo "finding text files containing error string"
 
-TEXT_FILES_LIST=$(find "$DIR_PATH" -type f -name "file*")
+TEXT_FILES_LIST=$(find $DIR_PATH -type f -name "file*")
 
 for file in $TEXT_FILES_LIST
 do
