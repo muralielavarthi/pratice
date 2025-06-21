@@ -6,7 +6,7 @@ read USER_NAME
 
 read PASSWORD
 
-if [ $USER_NAME == "admin" ] && [ $USER_NAME == "admin" ]   
+if [ $USER_NAME == "admin" ] && [ $PASSWORD == "admin" ]   
 then
     echo "login succesfull"
 else    
