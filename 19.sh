@@ -1,32 +1,29 @@
 #!/bin/bash
 
-echo "enter DIR path"
-
+echo "Enter DIR path:"
 read DIR_PATH
 
-if [ -d $DIR_PATH ]
-then
-    echo "directory path is valid, checking error files"
+if [ -d "$DIR_PATH" ]; then
+    echo "Directory path is valid, checking error files"
 else
-    echo "directory path invalid, existing!"
+    echo "Directory path invalid, exiting!"
     exit 1
 fi
 
-echo "finding text files"
-touch output.txt
-echo "created final output file"
+echo "Finding text files"
+OUTPUT_FILE="output.txt"
+> "$OUTPUT_FILE"  # This truncates or creates the file
+echo "Created final output file"
 
-TEXT_FILES_LIST=find "$DIR_PATH" -type f -name "file*"
+# Store the result of find command in a variable safely using command substitution
+TEXT_FILES_LIST=$(find "$DIR_PATH" -type f -name "file*")
 
-while read line
-do  
-    grep -i "error" $line
-    if [ $? -eq 0 ]
-    then
-        $line>>output.txt
+# Iterate over each file
+for FILE in $TEXT_FILES_LIST; do
+    if grep -qi "error" "$FILE"; then
+        echo "$FILE" >> "$OUTPUT_FILE"
     fi
-done <<<TEXT_FILES_LIST
+done
 
-echo "print text files containing "error" string"
-
-cat output.txt
+echo "Text files containing the word 'error':"
+cat "$OUTPUT_FILE"
