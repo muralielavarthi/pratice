@@ -2,17 +2,14 @@
 
 function sum()
 {
-    num2=20
-    RESULT=$(($num1+$num2))
+    RESULT=$(($1+$2))
     echo "result is $RESULT"
-    # num1 value is from global varibale
-    # num2 value is from local variable
 }
 
 echo "enter num1"
-read num1 # global variable
+read num1 
 
 echo "enter num2"
-read num2 # global veriable
+read num2
 
-sum
+sum $num1, $num2
