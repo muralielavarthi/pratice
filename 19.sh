@@ -4,7 +4,7 @@ echo "enter the directory path"
 
 read $DIR_PATH
 
-if [ -d "$DIR_PATH" ]
+if [ -d $DIR_PATH ]
 then
     echo "valid directory, continuing..."
 else
