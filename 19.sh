@@ -9,6 +9,7 @@ then
     echo "valid directory, continuing..."
 else
     echo "invalid director, exited!"
+    exit 1
 fi
 
 echo "creating output file"
