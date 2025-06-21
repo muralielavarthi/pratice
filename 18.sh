@@ -2,7 +2,7 @@
 
 function sum()
 {
-    RESULT=$(($1+$2))
+    RESULT=$(($num1+$num2))
     echo "result is $RESULT"
 }
 
