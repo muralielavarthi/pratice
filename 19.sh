@@ -25,7 +25,7 @@ do
     then
         $line>>output.txt
     fi
-done
+done <<<TEXT_FILES_LIST
 
 echo "print text files containing "error" string"
 
