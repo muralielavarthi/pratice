@@ -7,7 +7,7 @@ echo "press ctrl+D to save and exit"
 
 while read line
 do
-    echo $line>output.txt
+    echo $line>>output.txt
 done
 
 echo "printing content of file"
