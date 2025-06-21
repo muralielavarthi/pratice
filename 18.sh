@@ -4,6 +4,8 @@ function sum()
 {
     RESULT=$(($1+$2))
     echo "result is $RESULT"
+    echo $1
+    echo $2
 }
 
 echo "enter num1"
