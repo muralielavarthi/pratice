@@ -7,3 +7,5 @@ touch disk_uti.txt
 echo "printing disk utli in file"
 
 free -h>disk_uti.txt
+
+cat disk_uti.txt
