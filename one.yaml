@@ -1,18 +1,20 @@
-- name: vars in playbook
+- name: playbook 1
   gather_facts: false
   hosts: web
-  connection: local
-  vars:
-    name: "murali"
-    age: 2002
-  vars_files:
-    - vars.yaml
-  vars_prompt:
-    name: prof
-    prompt: "enter the prof"
+  connnection: local
   tasks:
-    - name: message the server
+    - name: string and number data
       vars:
-        gender: "male"
-      ansible.builtin.debug:
-        msg: "{{ name }} and {{ age }} and {{ country }} and {{ prof }} and {{ course }} and {{ gender }} and {{ loc }}"
+        name: "murali, this is string"
+        age: 200
+    - name: list and map
+      ansible.built.debug:
+        msg: "{{ name }}"
+      loop:
+        - list 1
+        - list 2
+    - name: boolean data
+      vars:
+        ismale: true
+      ansible.built.debug:
+        msg: "{{ ismale }}"
