@@ -1,7 +1,7 @@
 - name: vars in playbook
   gather_facts: false
-  hosts: local_host
-  connection: local_host
+  hosts: web
+  connection: local
   vars:
     name: "murali"
     age: 2002
