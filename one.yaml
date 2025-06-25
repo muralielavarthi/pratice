@@ -5,9 +5,9 @@
   vars:
     name: "murali"
     age: 2002
-  var_files:
+  vars_files:
     - vars.yaml
-  var_prompt:
+  vars_prompt:
     name: prof
     prompt: "enter the prof"
   tasks:
