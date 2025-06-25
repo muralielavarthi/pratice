@@ -12,5 +12,7 @@
     prompt: "enter the prof"
   tasks:
     - name: message the server
+      vars:
+        gender: "male"
       ansible.builtin.debug:
-        msg: "{{ name }} and {{ age }} and {{ country }} and {{ prof }} and {{ course }}"
+        msg: "{{ name }} and {{ age }} and {{ country }} and {{ prof }} and {{ course }} and {{ gender }} and {{ loc }}"
