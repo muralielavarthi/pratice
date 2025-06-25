@@ -7,6 +7,8 @@
       vars:
         name: "murali, this is string"
         age: 200
+      ansible.built.debug:
+        msg: "{{ name }} and {{ age }}"
     - name: list and map
       ansible.built.debug:
         msg: "{{ name }}"
