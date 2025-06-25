@@ -1,31 +1,16 @@
-- name: basic playbook
+- name: vars in playbook
   gather_facts: false
-  hosts: local
+  hosts: local_host
   connection: local
+  vars:
+    name: "murali"
+    age: 2002
+  var_files:
+    - vars.yaml
+  var_prompt:
+    name: prof
+    prompt: "enter the prof"
   tasks:
-    - name: ping the server
-      ansible.builtin.ping:
     - name: message the server
       ansible.builtin.debug:
-        msg: "hello server"
-    - name: install nginx
-      ansible.builtin.package:
-        name: nginx
-        state: present
-    - name: start nginx
-      ansible.builtin.service:
-        name: nginx
-        state: started
-        enabled: yes
-    - name: create directory
-      ansible.builtin.file:
-        state: directory
-        path: /home/ec2-user/dir
-        mode: 777
-- name: basic play2
-  gather_facts: no
-  hosts: local
-  connection: local
-  tasks:
-    - name: ping the server
-      ansible.builtin.ping:
+        msg: "{{ name }} and {{ age }} and {{ country }} and {{ prof }} and {{ course }}"
