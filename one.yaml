@@ -1,7 +1,7 @@
 - name: playbook 1
   gather_facts: false
   hosts: web
-  connnection: local
+  connection: local
   tasks:
     - name: string and number data
       vars:
