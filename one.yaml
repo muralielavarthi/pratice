@@ -20,7 +20,7 @@
     - name: create directory
       ansible.builtin.file:
         state: directory
-        path: /home/ec2-user
+        path: /home/ec2-user/dir
         mode: 777
 - name: basic play2
   gather_facts: no
