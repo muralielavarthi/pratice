@@ -1,7 +1,32 @@
 - name: play1
   hosts: web
-  gather_facts: no
+  connection: local
+  vars:
+    instance_names:
+      - frontend
+      - backend
+      - database
+    subnet_id: subnet-0f4dd395530fb0d4d
+    image_id: ami-09c813fb71547fc4f
+    security_group: sg-09002db929ad2ff12
+    instance_type: t3.micro
   tasks:
-    - name: checking
+    - name: install boto3 and botocore
+      ansible.builtin.pip:
+        name: "{{ item }}"
+        state: present
+      loop:
+        - boto3
+        - botocore
+    - name: create ec2 instances
+      amazon.aws.ec2_instance:
+        name: "{{ item }}"
+        subnet_id: "{{ subnet_id }}"
+        image_id: "{{ image_id }}"
+        security_group: "{{ security_group }}"
+        instance_type: "{{ instance_type }}"
+      loop: "{{ instance_names }}"
+      register: ec2_info
+    - name: print ec2_info
       ansible.builtin.debug:
-        msg: "{{ hello server }}"
+        msg: "{{ ec2_info }}"
