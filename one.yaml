@@ -1,22 +1,7 @@
-- name: playbook 1
-  gather_facts: false
+- name: play1
   hosts: web
-  connection: local
+  gather_facts: no
   tasks:
-    - name: string and number data
-      vars:
-        name: "murali, this is string"
-        age: 200
-      ansible.built.debug:
-        msg: "{{ name }} and {{ age }}"
-    - name: list and map
-      ansible.built.debug:
-        msg: "{{ name }}"
-      loop:
-        - list 1
-        - list 2
-    - name: boolean data
-      vars:
-        ismale: true
-      ansible.built.debug:
-        msg: "{{ ismale }}"
+    - name: checking
+      ansible.builtin.debug:
+        msg: "{{ hello server }}"
